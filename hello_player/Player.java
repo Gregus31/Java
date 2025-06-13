@@ -1,7 +1,7 @@
 public class Player {
 
  private final String name;
- public int hp;
+ private int hp;
 
  public Player(String name) {
  this.name = name;
@@ -14,6 +14,8 @@ public class Player {
  }
 
  public void takedamage(int dm){
+   
+   assert this.isAlive() :"Le player " + name + " aurait du etre KO, ne peut donc pas reprendre de degats"; // faux →AssertionError si -ea
     this.hp=this.hp-dm;
  }
 
@@ -26,7 +28,7 @@ public class Player {
  }
  public static void main(String[] args) {
  Player p = new Player("Greg");
-  p.greet();
+ p.greet();
  p.HP();
  p.takedamage(15);
  p.HP();
