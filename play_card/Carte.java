@@ -8,6 +8,14 @@ this.valeur = valeur;
 }
 public abstract void jouer();
 
+public boolean equals(Object o){
+    if (!(o instanceof Carte)) 
+    {return false;}
+        Carte a = (Carte) o;
+        return this.nom == a.nom && this.valeur == a.valeur;
+    }
+
+
 public static void main(String[] args) {
         Carte[] main = new Carte[3];
 main[0] = new CarteChiffre("Coeur", 7);

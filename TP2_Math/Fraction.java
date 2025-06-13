@@ -29,12 +29,29 @@ public class Fraction {
     public String toString() {
         return num + "/" + den;
     }
+    public int compareTo(Fraction a) {
+    int res = this.num * a.den - a.num * this.den;
+    if (res>0){
+        System.out.println(this.toString() + " est superieur a " + a.toString());
+        return 1;
+    }
+    if (res<0) {
+        System.out.println(this.toString() + " est inferieur a " + a.toString());
+        return -1;
+    }
+    else{
+        System.out.println(this.toString() + " est egale a " + a.toString());
+        return 0;
+    }
+}
+
 
     public static void main(String[] args) {
         Fraction f = new Fraction(2, 3);
         Fraction g = new Fraction(1, 6);
         System.out.println(f.add(g).toString());
         System.out.println(f.multiply(g).toString());
+        System.out.println(f.compareTo(f));
         assert f.add(g).toString().equals("5/6"):"C'est pas le bon résultat";
         assert f.multiply(g).toString().equals("1/9"):"C'est pas le bon résultat";
     }
